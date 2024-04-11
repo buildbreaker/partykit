@@ -1,5 +1,28 @@
 # partykit
 
+## 0.0.104
+
+### Patch Changes
+
+- [#868](https://github.com/partykit/partykit/pull/868) [`b337e86`](https://github.com/partykit/partykit/commit/b337e863efc00ca6c05365ec3ce848ee97e96f1c) Thanks [@threepointone](https://github.com/threepointone)! - feat: custom bindings for cloud-prem (part 1)
+
+  Instead of having to provision resources directly from the config, we'd like to bind to existing resources in users' CF accounts. For example, you have an R2 bucket that you'd like to access from your partykit project. Now, you can add this to your `partykit.json`:
+
+  ```jsonc
+  {
+    //...
+    "bindings": {
+      "r2": {
+        "myBucket": "my-bucket-name",
+      },
+    },
+  }
+  ```
+
+  Inside your project, you can now access the r2 bucket with `room.context.bindings.r2.myBucket` (or `lobby.bindings.r2.myBucket`).
+
+  We'll add more types of bindings in the near future.
+
 ## 0.0.103
 
 ### Patch Changes
